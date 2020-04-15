@@ -1,18 +1,18 @@
+
 #ifndef NX_SHELL_CONFIG_H
 #define NX_SHELL_CONFIG_H
 
 #include <switch.h>
 
 typedef struct {
-	bool dark_theme;
-	bool dev_options;
-	int sort;
-} nxshell_config_t;
+	int sort = 0;
+	bool dark_theme = false;
+	char cwd[FS_MAX_PATH];
+} config_t;
 
-extern nxshell_config_t config;
+extern config_t config;
 
-Result Config_Save(nxshell_config_t config);
-Result Config_Load(void);
-Result Config_GetLastDirectory(void);
+int Config_Save(config_t config);
+int Config_Load(void);
 
 #endif
