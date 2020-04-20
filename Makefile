@@ -46,7 +46,7 @@ ROMFS	    :=	romfs
 
 VERSION_MAJOR := 3
 VERSION_MINOR := 0
-VERSION_MICRO := 0
+VERSION_MICRO := 1
 
 APP_TITLE     := NX-Shell
 APP_AUTHOR    := Joel16
