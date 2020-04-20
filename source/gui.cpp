@@ -303,10 +303,10 @@ int GUI_RenderMainMenu(SDL_Window *window) {
 		ImGui_ImplSDL2_NewFrame(window);
 		ImGui::NewFrame();
 		
+		ImGui::SetNextWindowPos({0.0f, 0.0f}, ImGuiCond_Once);
+		ImGui::SetNextWindowSize({1280.0f, 720.0f}, ImGuiCond_Once);
 		ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
 		if (ImGui::Begin("NX-Shell", nullptr, ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse)) {
-			ImGui::SetNextWindowSize({1280.0f, 720.0f}, ImGuiCond_Once);
-			
 			// Initially set default focus to next window (FS_DirList)
 			if (!set_focus) {
 				ImGui::SetNextWindowFocus();
@@ -366,9 +366,8 @@ int GUI_RenderMainMenu(SDL_Window *window) {
 				GUI_RenderDeleteMenu(&item);
 			else if (item.state == MENU_STATE_SETTINGS)
 				GUI_RenderSettingsMenu(&item);
-			
-			ImGui::End();
 		}
+		ImGui::End();
 		ImGui::PopStyleVar();
 		
 		// Rendering
